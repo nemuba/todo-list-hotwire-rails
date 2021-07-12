@@ -34,6 +34,7 @@ group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "rubocop-rails"
   gem "solargraph"
+  gem "dotenv-rails"
 end
 
 group :development do
