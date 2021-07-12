@@ -33,6 +33,7 @@ class TodosController < ApplicationController
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@todo, partial: "todos/form", locals: { todo: @todo }) }
       end
     end
   end
@@ -56,6 +57,7 @@ class TodosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to todos_url, notice: "Todo was successfully destroyed." }
       format.json { head :no_content }
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@todo) }
     end
   end
 

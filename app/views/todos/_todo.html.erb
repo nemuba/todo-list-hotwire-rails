@@ -1,5 +1,9 @@
 <%= turbo_frame_tag dom_id(todo) do %>
   <div style="border: 2px solid gray; margin: 10px; padding: 20px">
     <%= todo.description %>
+    <div style="float: right">
+      <%= link_to 'Edit', edit_todo_path(todo) %>
+      <%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure ?'} %>
+    </div>
   </div>
 <% end %>
